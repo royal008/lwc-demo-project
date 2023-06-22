@@ -24,3 +24,4 @@ Searching users on github
 Live demo on the Scratch Org: https://hosted-scratch.herokuapp.comlaunch?template=https://github.com/royal008/lwc-demo-project
 
 # Preview
+![lightningAppPage](https://github.com/royal008/lwc-demo-project/assets/7281371/3a814c1b-ad36-4fa7-86af-69cb660da913)
