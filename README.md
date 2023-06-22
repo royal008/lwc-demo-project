@@ -22,3 +22,5 @@ Searching users on github
 
 # Live Demo
 Live demo on the Scratch Org: https://hosted-scratch.herokuapp.comlaunch?template=https://github.com/royal008/lwc-demo-project
+
+# Preview
