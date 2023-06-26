@@ -1,10 +1,14 @@
+:host{
+    --padding-border : 1rem;
+}
+
 .btn-cls{
     background-color: lightblue;
     color: blue;
     border: 1px;
-    border-radius: 1px;
+    padding: var(--padding-border);
 }
 
 .input-padding{
-    padding: 1rem;
+    padding: var(--padding-border);
 }
