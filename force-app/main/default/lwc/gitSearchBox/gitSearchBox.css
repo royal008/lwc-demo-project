@@ -4,3 +4,7 @@
     border: 1px;
     border-radius: 1px;
 }
+
+.input-padding{
+    padding: 1rem;
+}

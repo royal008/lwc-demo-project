@@ -1,5 +1,12 @@
 <template>
-    <h1>My First heading</h1>
-    <h1>My Second heading</h1>
-    <button class="btn-cls"   onclick={handleClick}>Click Me</button>
+    <lightning-card  title="Please Search">
+        <lightning-button label="search" icon-name="utility:download"  onclick={handleChange}   slot="actions"></lightning-button>
+        <lightning-input
+        class="input-padding"
+            name="enter-search"
+            onchange={handleChange}
+            label="Click on Search after typing"
+            type="search"
+        ></lightning-input>
+    </lightning-card>
 </template>
