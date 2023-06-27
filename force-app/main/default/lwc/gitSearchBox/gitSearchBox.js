@@ -1,5 +1,6 @@
-import { LightningElement } from 'lwc';
+import { LightningElement , wire} from 'lwc';
 import { publish, MessageContext } from 'lightning/messageService';
+import searchMessage from '@salesforce/messageChannel/gitSearchMessagingChannel__c';
 
 export default class GitSearchBox extends LightningElement {
   connectedCallback(){
@@ -8,8 +9,17 @@ export default class GitSearchBox extends LightningElement {
   renderedCallback(){
     console.log('rendered callblack');
   }
+
+  @wire(MessageContext)
+    messageContext;
+
+
   handleChange(event){
     let inputValue = this.template.querySelectorAll("lightning-input")[0].value;
     console.log('inputValue',inputValue);
+
+        const payload = { isTermValid:true, searchTerm:inputValue };
+
+        publish(this.messageContext, searchMessage, payload);
   }
 }
