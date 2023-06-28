@@ -1,4 +1,4 @@
-import { LightningElement, wire} from 'lwc';
+import { LightningElement, api,wire,track} from 'lwc';
 import {
     subscribe,
     unsubscribe,
@@ -10,6 +10,8 @@ import searchMessage from '@salesforce/messageChannel/gitSearchMessagingChannel_
 export default class GitListView extends LightningElement {
 
     subscription = null;
+
+    @api personName;
 
     @wire(MessageContext)
     messageContext;
