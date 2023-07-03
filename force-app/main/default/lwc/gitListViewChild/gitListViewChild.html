@@ -1,0 +1,13 @@
+<template>
+    <template if:true={retrivedUser}>
+    <div class="slds-p-around_medium lgc-bg">
+        <lightning-tile label={retrivedUser.login} href={retrivedUser.html_url} type="media">
+            <lightning-avatar slot="media" src={retrivedUser.avatar_url} fallback-icon-name="standard:person_account" alternative-text="royal008"></lightning-avatar>
+            <ul class="slds-list_horizontal slds-has-dividers_right">
+                <li class="slds-item">{retrivedUser.type}, {retrivedUser.score}</li>
+                <li class="slds-item">{retrivedUser.node_id}</li>
+            </ul>
+        </lightning-tile>
+    </div>
+</template>
+</template>

@@ -5,11 +5,17 @@ import searchMessage from '@salesforce/messageChannel/gitSearchMessagingChannel_
 export default class GitSearchBox extends LightningElement {
 
   searchText = 'sowmya';
+
+  constructor(){
+    super();
+    console.log('constructor callblack parent');
+  }
   connectedCallback(){
-    console.log('connected callblack');
+    
+    console.log('connected callblack parent');
   }
   renderedCallback(){
-    console.log('rendered callblack');
+    console.log('rendered callblack parent');
   }
 
   @wire(MessageContext)
@@ -17,6 +23,7 @@ export default class GitSearchBox extends LightningElement {
 
 
   handleChange(event){
+    this.template.querySelector('c-git-child-search').logInConsole();
     let inputValue = this.template.querySelectorAll("lightning-input")[0].value;
     console.log('inputValue',inputValue);
     this.searchText = inputValue;

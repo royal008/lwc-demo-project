@@ -1,14 +1,9 @@
 <template>
     <lightning-card  title="Please Search">
         <lightning-button label="search" icon-name="utility:download"  onclick={handleChange}   slot="actions"></lightning-button>
-        <lightning-input
-        class="input-padding"
-            name="enter-search"
-            onchange={handleChange}
-            label="Click on Search after typing"
-            type="search"
-        ></lightning-input>
-        the tracking item-----  {searchText}
+        <lightning-input class="input-padding" name="enter-search" label="Click on Search after typing" onchange={handleChange}  type="search"></lightning-input>
+      the tracking item -- {searchText}
     </lightning-card>
-    <c-git-list-view person-name={searchText} ></c-git-list-view>
+   <!--<c-git-list-view person-name={searchText} ></c-git-list-view>-->
+    <c-git-child-search from-parent-name="Manas" not-from-parent-name="Tej"></c-git-child-search> 
 </template>

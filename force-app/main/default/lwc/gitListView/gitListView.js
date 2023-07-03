@@ -1,17 +1,14 @@
 import { LightningElement, api,wire,track} from 'lwc';
-import {
-    subscribe,
-    unsubscribe,
-    APPLICATION_SCOPE,
-    MessageContext
-} from 'lightning/messageService';
+import { subscribe,unsubscribe,APPLICATION_SCOPE, MessageContext} from 'lightning/messageService';
 import searchMessage from '@salesforce/messageChannel/gitSearchMessagingChannel__c';
-
+const QUERY_USER_ENDPOINT_URL = 'https://api.github.com/search/users?q=';
 export default class GitListView extends LightningElement {
 
     subscription = null;
 
     @api personName;
+
+    retrivedUsers = [];
 
     @wire(MessageContext)
     messageContext;
@@ -37,8 +34,18 @@ export default class GitListView extends LightningElement {
         }
     }
 
-    handleMessage(message){
+   async handleMessage(message){
         console.log('handleMessage', message);
+        this.personName = message.searchTerm;
+        let queryEndPoint = QUERY_USER_ENDPOINT_URL+this.personName;
+        try{
+        const RESPONSE=await fetch(queryEndPoint);
+        const USER_LIST=await RESPONSE.json();
+        console.log(USER_LIST.items);
+        this.retrivedUsers=USER_LIST.items;
+        }catch(error){
+            console.log(error);
+        }
     }
 
     unsubscribeToMessageChannel() {
