@@ -1,7 +1,6 @@
 import { LightningElement , wire} from 'lwc';
 import { publish, MessageContext } from 'lightning/messageService';
 import searchMessage from '@salesforce/messageChannel/gitSearchMessagingChannel__c';
-
 export default class GitSearchBox extends LightningElement {
 
   searchText = 'sowmya';
@@ -20,13 +19,12 @@ export default class GitSearchBox extends LightningElement {
 
   @wire(MessageContext)
     messageContext;
-
-
-  handleChange(event){
-    this.template.querySelector('c-git-child-search').logInConsole();
+  
+    handleChange(event){
+   // this.template.querySelector('c-git-child-search').logInConsole();
     let inputValue = this.template.querySelectorAll("lightning-input")[0].value;
     console.log('inputValue',inputValue);
-    this.searchText = inputValue;
+   // this.searchText = inputValue;
 
         const payload = { isTermValid:true, searchTerm:inputValue };
 

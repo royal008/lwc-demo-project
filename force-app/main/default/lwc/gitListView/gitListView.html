@@ -1,11 +1,21 @@
 <template>
 
     <lightning-card  title="User List">
-      
+       
+        <template if:true={selectedUser}>
+            The selected user is <strong>{selectedUser}</strong>
+            <br/>
+            <lightning-button label="save user" title="Non-primary action" onclick={handleSaveUserClick} class="slds-m-left_x-small"></lightning-button>
+        </template>
+        <template if:true={retriveduserName}>
+           
+            The retrived user is <strong>{retriveduserName}</strong> 
+        </template>
+       
         <template if:true={retrivedUsers}>
             <template for:each={retrivedUsers} for:item="retrivedUser">
                 <div key={retrivedUser.id}>
-                    <c-git-list-view-child retrived-user={retrivedUser}></c-git-list-view-child>
+                    <c-git-list-view-child retrived-user={retrivedUser} onuserclicked={handleOnUserClicked} ></c-git-list-view-child>
                 </div>
              <!--   <li key={retrivedUser.id}>
                     {retrivedUser.login} <img src={retrivedUser.avatar_url} alt="royal008" width="100" height="150">
